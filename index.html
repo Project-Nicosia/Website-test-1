@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Steakhouse | Premium Quality Steak</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background: #11100e;
+            color: #f5f0e8;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            background: #181613;
+            border-bottom: 1px solid #393027;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #d7a45b;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: #f5f0e8;
+            text-decoration: none;
+            margin-left: 25px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #d7a45b;
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 8%;
+            background:
+                linear-gradient(90deg,
+                    rgba(12, 10, 8, 0.95) 0%,
+                    rgba(12, 10, 8, 0.65) 55%,
+                    rgba(12, 10, 8, 0.15) 100%),
+                url("https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=1800&q=85")
+                center/cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .eyebrow {
+            color: #d7a45b;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font: 13px Arial, sans-serif;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(45px, 7vw, 78px);
+            line-height: 1.08;
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            color: #d7a45b;
+        }
+
+        .hero p {
+            font: 17px/1.8 Arial, sans-serif;
+            color: #ded8ce;
+            max-width: 500px;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #b77b35;
+            color: #fff;
+            text-decoration: none;
+            font: bold 13px Arial, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid #b77b35;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: #d7a45b;
+        }
+
+        section {
+            padding: 85px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(30px, 4vw, 45px);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #b9afa2;
+            font: 15px Arial, sans-serif;
+        }
+
+        .gold {
+            color: #d7a45b;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 30px 20px;
+            border: 1px solid #393027;
+            background: #191714;
+        }
+
+        .feature .icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            color: #d7a45b;
+            margin-bottom: 12px;
+            font-size: 22px;
+        }
+
+        .feature p {
+            color: #b9afa2;
+            font: 14px/1.8 Arial, sans-serif;
+        }
+
+        .menu {
+            background: #191714;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .steak-card {
+            background: #211e19;
+            border: 1px solid #393027;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .steak-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .steak-card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 24px;
+        }
+
+        .card-content h3 {
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            font: 14px/1.7 Arial, sans-serif;
+            color: #b9afa2;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            color: #d7a45b;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 55px;
+        }
+
+        .about img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+        }
+
+        .about h2 {
+            font-size: clamp(30px, 4vw, 44px);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            color: #b9afa2;
+            font: 15px/1.9 Arial, sans-serif;
+            margin-bottom: 25px;
+        }
+
+        .reservation {
+            text-align: center;
+            background:
+                linear-gradient(rgba(10, 9, 7, 0.88),
+                                rgba(10, 9, 7, 0.88)),
+                url("https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1600&q=85")
+                center/cover;
+        }
+
+        .reservation h2 {
+            font-size: clamp(32px, 5vw, 48px);
+            margin-bottom: 15px;
+        }
+
+        .reservation p {
+            color: #c9c0b5;
+            font: 15px Arial, sans-serif;
+            margin-bottom: 30px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 8%;
+            background: #181613;
+            border-top: 1px solid #393027;
+            color: #a89e91;
+            font: 13px Arial, sans-serif;
+        }
+
+        footer .logo {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 800px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0;
+            }
+
+            .features,
+            .menu-grid,
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 75vh;
+                padding: 65px 7%;
+                background-position: 60% center;
+            }
+
+            section {
+                padding: 65px 7%;
+            }
+
+            .about img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">PRIME.</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#quality">Our Quality</a>
+            <a href="#menu">Steak Menu</a>
+            <a href="#about">Our Story</a>
+            <a href="#reservation">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="eyebrow">The Art of Great Steak</div>
+
+            <h1>Exceptional Steak.<br>
+                <span>Unforgettable</span> Taste.</h1>
+
+            <p>
+                Discover the finest cuts of beef, carefully selected
+                for their tenderness, rich flavor, and exceptional
+                quality. Perfectly prepared for a dining experience
+                worth remembering.
+            </p>
+
+            <a href="#menu" class="btn">Explore Our Steaks</a>
+        </div>
+    </section>
+
+    <section id="quality">
+        <div class="section-title">
+            <div class="eyebrow">Our Promise</div>
+            <h2>Quality You Can <span class="gold">Taste</span></h2>
+            <p>Every detail matters when it comes to a perfect steak.</p>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <div class="icon">🥩</div>
+                <h3>Premium Cuts</h3>
+                <p>
+                    Carefully selected beef cuts chosen for excellent
+                    marbling, tenderness, and deep, satisfying flavor.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">🔥</div>
+                <h3>Perfectly Grilled</h3>
+                <p>
+                    Cooked with precision over intense heat to create
+                    a beautiful crust and a juicy, flavorful center.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">⭐</div>
+                <h3>Exceptional Service</h3>
+                <p>
+                    From the first greeting to the final bite, we aim
+                    to make every meal special.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu" id="menu">
+        <div class="section-title">
+            <div class="eyebrow">From Our Grill</div>
+            <h2>The Steak <span class="gold">Selection</span></h2>
+            <p>Discover the character of every cut.</p>
+        </div>
+
+        <div class="menu-grid">
+
+            <div class="steak-card">
+                <img
+                    src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=900&q=85"
+                    alt="Juicy grilled premium steak">
+
+                <div class="card-content">
+                    <h3>Ribeye Steak</h3>
+                    <p>
+                        Richly marbled and full of flavor, with a tender
+                        texture and a beautifully caramelized crust.
+                    </p>
+                    <div class="price">€32 <small>/ portion</small></div>
+                </div>
+            </div>
+
+            <div class="steak-card">
+                <img
+                    src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85"
+                    alt="Grilled steak served with herbs">
+
+                <div class="card-content">
+                    <h3>Filet Mignon</h3>
+                    <p>
+                        An elegant, exceptionally tender cut with a
+                        delicate flavor and a smooth, buttery texture.
+                    </p>
+                    <div class="price">€38 <small>/ portion</small></div>
+                </div>
+            </div>
+
+            <div class="steak-card">
+                <img
+                    src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=900&q=85"
+                    alt="Thick-cut grilled beef steak">
+
+                <div class="card-content">
+                    <h3>Tomahawk Steak</h3>
+                    <p>
+                        A spectacular bone-in rib steak, perfect for
+                        sharing and celebrated for its bold beef flavor.
+                    </p>
+                    <div class="price">€65 <small>/ portion</small></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <img
+            src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1100&q=85"
+            alt="Premium steak prepared for a fine dining experience">
+
+        <div>
+            <div class="eyebrow">Our Philosophy</div>
+            <h2>Simple Ingredients.<br>
+                <span class="gold">Extraordinary Results.</span></h2>
+
+            <p>
+                At Prime Steakhouse, great steak begins with respect
+                for the ingredients. We believe in carefully sourced
+                beef, thoughtful preparation, and letting natural
+                flavor take center stage.
+            </p>
+
+            <p>
+                A hot grill, quality seasoning, and attention to every
+                detail transform a great cut into a memorable meal.
+            </p>
+
+            <a href="#reservation" class="btn">Visit Us</a>
+        </div>
+    </section>
+
+    <section class="reservation" id="reservation">
+        <div class="eyebrow">Your Table Awaits</div>
+        <h2>Make It a <span class="gold">Steak Night</span></h2>
+
+        <p>
+            Celebrate good food, great company, and exceptional steak.
+        </p>
+
+        <a
+            href="mailto:reservations@example.com?subject=Steakhouse%20Reservation"
+            class="btn">
+            Request a Reservation
+        </a>
+    </section>
+
+    <footer>
+        <div class="logo">PRIME.</div>
+        <p>Premium Steakhouse · Great Cuts, Great Taste</p>
+        <p>&copy; <span id="year"></span> Prime Steakhouse. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
